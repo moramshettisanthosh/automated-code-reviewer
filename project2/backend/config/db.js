@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
-  const uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/novareviewai';
+  const uri = process.env.MONGODB_URI || process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/novareviewai';
   if (process.env.NODE_ENV === 'test') {
     console.warn('Test environment detected. Skipping MongoDB connection.');
     return;
   }
 
-  if (!uri) {
-    console.warn('MONGO_URI is not configured. Running in fallback mode without database.');
+  if (!uri || uri === 'mongodb://127.0.0.1:27017/novareviewai') {
+    console.warn('MONGODB_URI is not configured. Running in fallback mode without database.');
     return;
   }
 
