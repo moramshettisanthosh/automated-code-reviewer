@@ -3,10 +3,10 @@ services:
     name: automated-code-reviewer-api
     env: node
     plan: free
-    rootDir: backend
-    buildCommand: npm install
-    startCommand: npm start
-    envVars:
+    root_dir: backend
+    build_command: npm install
+    start_command: npm start
+    env_vars:
       - key: NODE_ENV
         value: production
       - key: MONGODB_URI
